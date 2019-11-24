@@ -9,10 +9,27 @@
     <servlet-name>servletKuba</servlet-name>
     <servlet-class>pl.altkom.web.ServletKuba</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>controllerServlet</servlet-name>
+    <servlet-class>pl.altkom.web.ControllerServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>redirectServlett</servlet-name>
+    <servlet-class>pl.altkom.web.RedirectServlett</servlet-class>
+  </servlet>
+
 
   <servlet-mapping>
     <servlet-name>servletKuba</servlet-name>
     <url-pattern>/hellokuba</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>controllerServlet</servlet-name>
+    <url-pattern>/controller</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>redirectServlett</servlet-name>
+    <url-pattern>/redirectServlett</url-pattern>
   </servlet-mapping>
 
 </web-app>
