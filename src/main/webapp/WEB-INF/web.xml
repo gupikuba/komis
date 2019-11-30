@@ -4,7 +4,10 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
-
+    <context-param>
+        <param-name>dataSource</param-name>
+        <param-value>jdbc:komis</param-value>
+    </context-param>
   <servlet>
     <servlet-name>servletKuba</servlet-name>
     <servlet-class>pl.altkom.web.ServletKuba</servlet-class>
@@ -53,9 +56,6 @@
     <res-auth>Container</res-auth>
   </resource-ref>
 
-  <context-param>
-  <param-name>dataSource</param-name>
-  <param-value>jdbc:komis</param-value>
-  </context-param>
+
 
 </web-app>
