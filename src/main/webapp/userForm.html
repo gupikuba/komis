@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dodaj uzytkownika</title>
+</head>
+<body>
+    <form action="saveClient" method="POST">
+        <input type="text" name="firstName" value="imie"><br>
+        <input type="text" name="lastName" value="nazwisko"><br>
+        <select name="age" value="wiek">
+            <option>18</option>
+            <option>19</option>
+            <option>20</option>
+            <option>21</option>
+            <option>22</option>
+            <option>23</option>
+            <option>24</option>
+            <option>25</option>
+        </select>wiek<br>
+        <select name="region" value="region">
+            <option>Malopolska</option>
+            <option>Slask</option>
+            <option>Mazowieckie</option>
+        </select>region<br>
+        mezczyzna<input type="radio" name="sex" value="mezczyna"><br>
+        kobieta<input type="radio" name="sex" value="kobieta">
+        <input type="submit" value="przeslij">
+    </form><br>
+    <a href="/displayClient">wyswietl klientow</a>
+</body>
+</html>

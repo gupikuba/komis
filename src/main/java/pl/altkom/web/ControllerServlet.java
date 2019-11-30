@@ -23,6 +23,7 @@ public class ControllerServlet extends HttpServlet {
         else
             pw.println("<H1> HELLO!!! </H!>");
         pw.println("<br><br><a href = /Komis/makeForm.html>formularz</a>");
+        pw.println("<br><br><a href = /Komis/userForm.html>dodaj uzytkownika</a>");
         pw.println("</BODY></HTML>");
 
     }

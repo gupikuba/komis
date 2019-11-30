@@ -32,7 +32,7 @@ public class RedirectServlett extends HttpServlet {
         pw.println("za chwile nastapi przekierowanie na strone producenta");
         pw.println("</BODY></HTML>");
 
-        pw.println("<meta http-equiv=\"Refresh\" content=\"5;url=http://www."+str+".com\">");
+        //pw.println("<meta http-equiv=\"Refresh\" content=\"5;url=http://www."+str+".com\">");
 
     }
 }
