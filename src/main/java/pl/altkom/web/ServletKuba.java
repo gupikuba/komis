@@ -1,11 +1,13 @@
 package pl.altkom.web;
 
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+@WebServlet(urlPatterns = "/hellokuba")
 public class ServletKuba extends HttpServlet {
     @Override
     public void service(HttpServletRequest request,

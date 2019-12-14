@@ -2,7 +2,9 @@ package pl.altkom.web;
 
 import javax.servlet.ServletRequestAttributeEvent;
 import javax.servlet.ServletRequestAttributeListener;
+import javax.servlet.annotation.WebListener;
 
+@WebListener
 public class SavedClient implements ServletRequestAttributeListener {
 
     @Override

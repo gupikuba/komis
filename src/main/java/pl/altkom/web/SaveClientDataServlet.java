@@ -1,16 +1,22 @@
 package pl.altkom.web;
 
+import javax.annotation.Resource;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Map;
 
+@WebServlet(urlPatterns = "/saveClient")
 public class SaveClientDataServlet extends HttpServlet {
+    @Resource(name = "jdbc:komis")
+    private DataSource ds;
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -23,7 +29,7 @@ public class SaveClientDataServlet extends HttpServlet {
 
         ClientDataDAO dao = new ClientDataDAOImpl();
         try {
-            dao.saveClientData(client, getServletContext().getInitParameter("dataSource"));
+            dao.saveClientData(client, ds);
             req.setAttribute("client",client);
         } catch (Exception e) {
             e.printStackTrace();

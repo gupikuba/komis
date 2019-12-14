@@ -6,17 +6,14 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.Resource;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 public class ClientDataDAOImpl implements ClientDataDAO {
 
-	public void saveClientData(Client cl, String dataSource) throws Exception {
-		
-        InitialContext initCtx = new InitialContext();
-		Context context = (Context) initCtx.lookup("java:comp/env");
-        DataSource ds = (DataSource) context.lookup(dataSource);
+	public void saveClientData(Client cl, DataSource ds) throws Exception {
 
         Connection con = null;
 

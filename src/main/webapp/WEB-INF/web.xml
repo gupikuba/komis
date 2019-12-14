@@ -3,67 +3,48 @@
         "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
+
   <display-name>Archetype Created Web Application</display-name>
     <context-param>
         <param-name>dataSource</param-name>
         <param-value>jdbc:komis</param-value>
     </context-param>
 
-  <listener>
-    <listener-class>pl.altkom.web.SessionCounter</listener-class>
-  </listener>
-<listener>
-  <listener-class>pl.altkom.web.SavedClient</listener-class>
-</listener>
+  <login-config>
+    <auth-method>BASIC</auth-method>
+    <realm-name>Komis_samochodowy</realm-name>
+  </login-config>
 
-  <servlet>
-    <servlet-name>servletKuba</servlet-name>
-    <servlet-class>pl.altkom.web.ServletKuba</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>controllerServlet</servlet-name>
-    <servlet-class>pl.altkom.web.ControllerServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>redirectServlet</servlet-name>
-    <servlet-class>pl.altkom.web.RedirectServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>saveClient</servlet-name>
-    <servlet-class>pl.altkom.web.SaveClientDataServlet</servlet-class>
-  </servlet>
-    <servlet>
-        <servlet-name>displayClient</servlet-name>
-        <servlet-class>pl.altkom.web.DisplayClientsServlet</servlet-class>
-    </servlet>
+  <security-constraint>
+    <display-name>Strona display</display-name>
 
-  <servlet-mapping>
-    <servlet-name>servletKuba</servlet-name>
-    <url-pattern>/hellokuba</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>controllerServlet</servlet-name>
-    <url-pattern>/controller</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>redirectServlet</servlet-name>
-    <url-pattern>/redirectServlet</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>saveClient</servlet-name>
-    <url-pattern>/saveClient</url-pattern>
-  </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>displayClient</servlet-name>
-        <url-pattern>/displayClient</url-pattern>
-    </servlet-mapping>
+    <web-resource-collection>
+      <web-resource-name>display</web-resource-name>
+      <url-pattern>/displayClient</url-pattern>
+    </web-resource-collection>
+
+    <auth-constraint>
+      <role-name>user</role-name>
+    </auth-constraint>
+
+    <user-data-constraint>
+      <transport-guarantee>NONE</transport-guarantee>
+    </user-data-constraint>
+
+  </security-constraint>
+
+  <security-role>
+    <role-name>user</role-name>
+  </security-role>
+
+
+
   <resource-ref>
     <description>DB Connection</description>
     <res-ref-name>jdbc:komis</res-ref-name>
     <res-type>javax.sql.DataSource</res-type>
     <res-auth>Container</res-auth>
   </resource-ref>
-
 
 
 </web-app>

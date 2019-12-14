@@ -45,6 +45,13 @@
       <artifactId>sqlite-jdbc</artifactId>
       <version>3.28.0</version>
     </dependency>
+      <dependency>
+          <groupId>javax</groupId>
+          <artifactId>javaee-api</artifactId>
+          <version>8.0.1</version>
+        <scope>provided</scope>
+      </dependency>
+
   </dependencies>
 
   <build>
@@ -56,6 +63,7 @@
         <version>2.2</version>
         <configuration>
           <contextFile>src/main/webapp/META-INF/context.xml</contextFile>
+          <tomcatUsers>src/main/webapp/META-INF/tomcat-users.xml</tomcatUsers>
         </configuration>
         <dependencies>
           <dependency>
