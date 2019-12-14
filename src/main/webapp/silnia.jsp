@@ -15,10 +15,15 @@
         <tr><th>liczba</th>
             <th>silnia</th>
         <tr>
+            <% String s = request.getParameter("x"); %>
+        <% int x=10;%> <%if(s!=null)x=Integer.parseInt(s);%>
     <% int n = 1;%>
-    <% for(int i = 1; i < 10; i++){%>
+    <% for(int i = 1; i <= x; i++){%>
     <% n *= i;%>
-    <tr><td><%out.print(i);%></td><td><%out.print(i+"!= "+n);%></td></tr>
+    <tr>
+        <td><%out.print(i);%></td>
+        <td><%out.print(i+"!= "+n);%></td>
+    </tr>
     <%}%>
     </table>
 </body>
