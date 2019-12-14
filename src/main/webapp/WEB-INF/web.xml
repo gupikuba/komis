@@ -8,6 +8,14 @@
         <param-name>dataSource</param-name>
         <param-value>jdbc:komis</param-value>
     </context-param>
+
+  <listener>
+    <listener-class>pl.altkom.web.SessionCounter</listener-class>
+  </listener>
+<listener>
+  <listener-class>pl.altkom.web.SavedClient</listener-class>
+</listener>
+
   <servlet>
     <servlet-name>servletKuba</servlet-name>
     <servlet-class>pl.altkom.web.ServletKuba</servlet-class>
@@ -17,8 +25,8 @@
     <servlet-class>pl.altkom.web.ControllerServlet</servlet-class>
   </servlet>
   <servlet>
-    <servlet-name>redirectServlett</servlet-name>
-    <servlet-class>pl.altkom.web.RedirectServlett</servlet-class>
+    <servlet-name>redirectServlet</servlet-name>
+    <servlet-class>pl.altkom.web.RedirectServlet</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>saveClient</servlet-name>
@@ -38,8 +46,8 @@
     <url-pattern>/controller</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>redirectServlett</servlet-name>
-    <url-pattern>/redirectServlett</url-pattern>
+    <servlet-name>redirectServlet</servlet-name>
+    <url-pattern>/redirectServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>saveClient</servlet-name>

@@ -24,6 +24,7 @@ public class SaveClientDataServlet extends HttpServlet {
         ClientDataDAO dao = new ClientDataDAOImpl();
         try {
             dao.saveClientData(client, getServletContext().getInitParameter("dataSource"));
+            req.setAttribute("client",client);
         } catch (Exception e) {
             e.printStackTrace();
         }
