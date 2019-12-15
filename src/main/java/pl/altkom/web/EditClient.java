@@ -1,5 +1,7 @@
 package pl.altkom.web;
 
+import pl.altkom.DAO.ClientDataDAOImpl;
+
 import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

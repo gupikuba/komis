@@ -1,4 +1,4 @@
-<%--
+<%@ page import="java.util.Map" %><%--
   Created by IntelliJ IDEA.
   User: student
   Date: 15.12.2019
@@ -34,5 +34,20 @@
                 <td><%=request.getParameter("capacity")%></td>
             </tr>
         </table>
+    <br><br>
+        <a href="carInfoForm.jsp">niepoprawne dane</a><br>
+        <form action="saveCar" method="post">
+            <%-- <input type="hidden" name="brand" value='<%= request.getParameter("brand")%>'>
+            <input type="hidden" name="type" value='<%= request.getParameter("type")%>'>
+            <input type="hidden" name="year" value='<%= request.getParameter("year")%>'>
+            <input type="hidden" name="milage" value='<%= request.getParameter("milage")%>'>
+            <input type="hidden" name="capacity" value='<%= request.getParameter("capacity")%>'>--%>
+            <%Map<String,String[]>map = (Map<String,String[]>)request.getParameterMap();%>
+               <% for(Map.Entry<String, String[]> e : map.entrySet()){%>
+            <input type="hidden" name = "<%out.print(e.getKey());%>" value="<%out.print(e.getValue()[0]);%>">
+                  <% }%>
+        <input type="submit" value="dodaj samochod">
+        </form>
+        <%@include file="comany_address.jsp"%>
 </body>
 </html>
