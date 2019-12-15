@@ -23,11 +23,12 @@
         <%}%>
     </select> <br>
         Region: <select name="region">
-        <option>Polska</option>
-        <option>Niemcy</option>
-        <option>Czechy</option>
-        <option>Francja</option>
-        <option>Holandia</option>
+        <option >Polska</option>
+        <%--nie dziala to0--%>
+        <option <%if(data[3].equals("Niemcy"))out.print("selected=\"selected\"");%>>Niemcy</option>
+        <option <%if(data[3].equals("Czechy"))out.print("selected=\"selected\"");%>>>Czechy</option>
+        <option <%if(data[3].equals("Francja"))out.print("selected=\"selected\"");%>>>Francja</option>
+        <option <%if(data[3].equals("Holandia"))out.print("selected=\"selected\"");%>>>Holandia</option>
     </select><br>
         <input type="radio" name="sex" value="MALE"> Mężczyzna <br>
         <input type="radio" name="sex" value="FEMALE"> Kobieta <br>
