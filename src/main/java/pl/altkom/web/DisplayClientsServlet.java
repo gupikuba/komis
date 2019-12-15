@@ -23,12 +23,12 @@ public class DisplayClientsServlet extends HttpServlet {
             PrintWriter pw = resp.getWriter();
             pw.println("<HTML><HEAD>");
             pw.println("<TITLE>lista klientow</TITLE>");
-            pw.println("<table>");
+            pw.println("<table border=\"solid\">");
             for(Object o : list){
                 Client c = (Client)o;
-                pw.println("<tr><td>"+c.getFirstName()+"</td></tr>");
-                pw.println("<tr><td>"+c.getLastName()+"</td></tr>");
-                pw.println("<tr><td>"+c.getAge()+"</td></tr>");
+                pw.println("<tr><td>"+c.getFirstName()+"</td>");
+                pw.println("<td>"+c.getLastName()+"</td>");
+                pw.println("<td>"+c.getAge()+"</td></tr>");
 
             }
             pw.println("</table>");

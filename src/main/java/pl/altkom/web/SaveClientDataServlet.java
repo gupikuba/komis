@@ -40,7 +40,7 @@ public class SaveClientDataServlet extends HttpServlet {
         pw.println("</HEAD><BODY>");
         pw.println("Udalo Ci sie dodac uzytkownika do bazy danych");
         pw.println("<br><br>dodaj kolejnego uzytkownika<br>" +
-                "<a href = /Komis/userForm.html>dodaj uzytkownika</a>");
+                "<a href = /Komis/userForm.jsp>dodaj uzytkownika</a>");
         pw.println("</BODY></HTML>");
 
     }

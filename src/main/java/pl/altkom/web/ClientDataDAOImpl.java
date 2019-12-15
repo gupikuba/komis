@@ -57,16 +57,17 @@ public class ClientDataDAOImpl implements ClientDataDAO {
 			conn = ds.getConnection();
 
 			PreparedStatement pstmt = conn.prepareStatement(
-					"SELECT imie, nazwisko, region, wiek, mezczyzna FROM klient");
+					"SELECT id, imie, nazwisko, region, wiek, mezczyzna FROM klient");
 
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
 				Client cl = new Client();
-				cl.setFirstName((rs.getString(1)));
-				cl.setLastName(rs.getString(2));
-				cl.setRegion(rs.getString(3));
-				cl.setAge(rs.getInt(4));
-				cl.setSex(rs.getInt(5)==1 ? "mezczyzna" : "kobieta");
+				cl.setId(rs.getInt(1));
+				cl.setFirstName((rs.getString(2)));
+				cl.setLastName(rs.getString(3));
+				cl.setRegion(rs.getString(4));
+				cl.setAge(rs.getInt(5));
+				cl.setSex(rs.getInt(6)==1 ? "mezczyzna" : "kobieta");
 				clients.add(cl);
 			}
 
@@ -78,5 +79,46 @@ public class ClientDataDAOImpl implements ClientDataDAO {
 			}
 		}
 		return clients;
+	}
+
+	@Override
+	public void removeClient(String fName, String lName, DataSource ds) throws Exception {
+		Connection con = null;
+		try {
+			con = ds.getConnection();
+			con.createStatement().
+					executeUpdate("delete from klient where imie = '" + fName + "' and nazwisko = '" + lName+"';");
+		}finally {
+			if(con!=null)
+				con.close();
+		}
+	}
+	@Override
+	public void removeClient(int id, DataSource ds) throws Exception {
+		Connection con = null;
+		try {
+			con = ds.getConnection();
+			con.createStatement().
+					executeUpdate("delete from klient where id = " + id +";");
+		}finally {
+			if(con!=null)
+				con.close();
+		}
+	}
+
+	@Override
+	public void editClient(Client c, DataSource ds) throws Exception {
+		int plec = c.getSex().equals("mezczyzna") ? 0 : 1;
+		Connection con = null;
+		try {
+			con = ds.getConnection();
+			con.createStatement().
+					executeUpdate("update klient set imie = '" + c.getFirstName()+"', nazwisko = '"+
+							c.getLastName()+"', region = '" + c.getRegion() + "' , wiek = "+c.getAge()+" , " +
+							"mezczyzna = "+ plec +" where id = " + c.getId()+";");
+		}finally {
+			if(con!=null)
+				con.close();
+		}
 	}
 }

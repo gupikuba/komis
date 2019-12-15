@@ -1,12 +1,16 @@
 package pl.altkom.web;
 
 public class Client {
+    private int id;
     private String firstName;
     private String lastName;
     private int age;
     private String region;
     private String sex;
 
+    public String getData(){
+        return id+" "+ firstName+" "+lastName + " " + age + " "+ region + " " + sex;
+    }
     @Override
     public String toString() {
         return "Client{" +
@@ -19,6 +23,14 @@ public class Client {
     }
 
     public Client() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getFirstName() {
