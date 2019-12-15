@@ -7,7 +7,7 @@ public class CarBean {
     private int year;
     private String milage;
     private String capacity;
-
+    //lalala
     public int getId() {
         return id;
     }
