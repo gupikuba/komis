@@ -34,5 +34,6 @@
         <input type="radio" name="sex" value="FEMALE"> Kobieta <br>
         <input type="submit" value="Edytuj">
     </form>
+
 </body>
 </html>

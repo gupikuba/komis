@@ -37,8 +37,6 @@
     <role-name>user</role-name>
   </security-role>
 
-
-
   <resource-ref>
     <description>DB Connection</description>
     <res-ref-name>jdbc:komis</res-ref-name>

@@ -11,7 +11,7 @@ import java.io.PrintWriter;
 public class RedirectServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String str = req.getParameter("marka");
+        String str = req.getParameter("mark");
         PrintWriter pw = resp.getWriter();
         String name = req.getParameter("name");
         pw.println("<HTML><HEAD>");

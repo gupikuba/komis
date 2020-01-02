@@ -1,20 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>formularz</title>
+    <title>Formularz</title>
 </head>
 <body>
-    <form action="redirectServlet" method="POST">
-        <select name = "marka">
-            <option value="opel">opel</option>
-            <option value="renault">renault</option>
-            <option value="audi">audi</option>
-            <option value="fiat">fiat</option>
-            <option value="toyota">toyota</option>
+<h2>Wybierz samochod</h2><br>
+<form action="redirectServlet" method="POST">
+    <select name = "mark">
+        <option value="opel">Opel</option>
+        <option value="renault">renault</option>
+        <option value="audi">audi</option>
+        <option value="fiat">fiat</option>
+        <option value="toyota">toyota</option>
+        <option value="ford">ford</option>
+    </select>
+    <input type="submit" value="wybierz">
+</form><br>
 
-        </select>
-        <input type="submit" value="wyslij">
-    </form>
 </body>
 </html>
