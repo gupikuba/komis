@@ -12,26 +12,31 @@
 </head>
 <body>
     <%String[] data = request.getParameter("client").split(" ");%>
+    <%String[] regions = pl.altkom.web.KomisData.getRegions();%>
     <h3>Edytuj klienta</h3>
     <form action="editClient">
         <input type="hidden" name="id" value = "<%=data[0]%>">
         Imię: <input type="text"  value = <%=data[1]%> name="firstName"> <br>
         Nazwisko: <input type="text" value = <%=data[2]%> name="lastName"> <br>
         Wiek: <select name="age" >
-        <%for(int i = 1; i<=100; i++){%>
-        <%out.print("<option>"+i+"</option>");%>
+        <%for(int i = 17; i<=100; i++){%>
+        <%String selected = "";%>
+        <%if(i==Integer.valueOf(data[3]))selected = "selected=\"selected\"";%>
+        <option <%=selected%>><%=i%></option>
         <%}%>
     </select> <br>
         Region: <select name="region">
-        <option >Polska</option>
-        <%--nie dziala to0--%>
-        <option <%if(data[3].equals("Niemcy"))out.print("selected=\"selected\"");%>>Niemcy</option>
-        <option <%if(data[3].equals("Czechy"))out.print("selected=\"selected\"");%>>>Czechy</option>
-        <option <%if(data[3].equals("Francja"))out.print("selected=\"selected\"");%>>>Francja</option>
-        <option <%if(data[3].equals("Holandia"))out.print("selected=\"selected\"");%>>>Holandia</option>
+        <%for(String s : regions){%>
+        <%String selected = "";%>
+        <%if(data[4].equals(s)) selected = "selected=\"selected\"";%>
+        <option <%=selected%>><%=s%></option>
+        <%}%>
+
     </select><br>
-        <input type="radio" name="sex" value="MALE"> Mężczyzna <br>
-        <input type="radio" name="sex" value="FEMALE"> Kobieta <br>
+        <input type="radio" name="sex" value="MALE"
+        <%if(data[5].equals("mezczyzna"))out.print("checked=\"checked\"");%>> Mężczyzna <br>
+        <input type="radio" name="sex" value="FEMALE"
+        <%if(data[5].equals("kobieta"))out.print("checked=\"checked\"");%>> Kobieta <br>
         <input type="submit" value="Edytuj">
     </form>
 

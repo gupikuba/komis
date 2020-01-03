@@ -17,7 +17,7 @@ public class ControllerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //tworzy sesję
-        HttpSession session = req.getSession();
+        HttpSession s = req.getSession();
 
         PrintWriter pw = resp.getWriter();
         String name = req.getParameter("name");

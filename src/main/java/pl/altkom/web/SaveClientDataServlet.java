@@ -38,9 +38,14 @@ public class SaveClientDataServlet extends HttpServlet {
         pw.println("<HTML><HEAD>");
         pw.println("<TITLE>succes</TITLE>");
         pw.println("</HEAD><BODY>");
-        pw.println("Udalo Ci sie dodac uzytkownika do bazy danych");
-        pw.println("<br><br>dodaj kolejnego uzytkownika<br>" +
-                "<a href = /Komis/userForm.jsp>dodaj uzytkownika</a>");
+        pw.println("<h3>Udalo Ci sie dodac uzytkownika do bazy danych</h3>");
+        Object counter = getServletContext().getAttribute("savedClientCounter");
+        if(counter!=null)
+            pw.println("<div style=\"position:absolute;bottom:15px\">dodano: "+counter.toString() + " uzytkownikow</div>");
+        pw.println("<ul>");
+        pw.println("<li><a style=\"text-decoration:none\" href = /Komis/userForm.jsp>Dodaj kolejnego uzytkownika</a></li>");
+        pw.println("<li><a style=\"text-decoration:none\" href= /Komis>Strona glowna</a></li>");
+        pw.println("</ul>");
         pw.println("</BODY></HTML>");
 
     }
