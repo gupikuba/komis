@@ -11,42 +11,56 @@
     <title>Sprawdz czy dane sa poprawne</title>
 </head>
 <body>
+
+        <jsp:useBean id="car" class="pl.altkom.web.CarBean" scope="session"/>
+        <%--to jest to swamo co
+        <jsp:setProperty name="car" property="make" param="make" jesli nazwa property jest taka sama
+        nie trzeba param;
+        <jsp:setProperty name="car" property="type" param="type"/> i tak dalej--%>
+        <jsp:setProperty name="car" property="*"/>
         <h3>sprawdz czy dane sa poprawne</h3>
         <table border="solid">
             <tr>
                 <th>marka</th>
-                <td><%=request.getParameter("brand")%></td>
+                <td><jsp:getProperty name="car" property="make"/></td>
             </tr>
             <tr>
                 <th>typ</th>
-                <td><%=request.getParameter("type")%></td>
+                <td><jsp:getProperty name="car" property="type"/></td>
             </tr>
             <tr>
                 <th>rok produkcji</th>
-                <td><%=request.getParameter("year")%></td>
+                <td><jsp:getProperty name="car" property="year"/></td>
             </tr>
             <tr>
                 <th>przebieg</th>
-                <td><%=request.getParameter("milage")%></td>
+                <td><jsp:getProperty name="car" property="milage"/></td>
             </tr>
             <tr>
                 <th>pojemnosc</th>
-                <td><%=request.getParameter("capacity")%></td>
+                <td><jsp:getProperty name="car" property="capacity"/></td>
             </tr>
         </table>
     <br><br>
-        <a href="carInfoForm.jsp">niepoprawne dane</a><br>
+        <%--tego nie trzeba teraz bo mamy w sesji obiekt car i potem tylko trzeba go dostac z r
+        req.getSession.getAttribute("car");
         <form action="saveCar" method="post">
             <%-- <input type="hidden" name="brand" value='<%= request.getParameter("brand")%>'>
             <input type="hidden" name="type" value='<%= request.getParameter("type")%>'>
             <input type="hidden" name="year" value='<%= request.getParameter("year")%>'>
             <input type="hidden" name="milage" value='<%= request.getParameter("milage")%>'>
-            <input type="hidden" name="capacity" value='<%= request.getParameter("capacity")%>'>--%>
+            <input type="hidden" name="capacity" value='<%= request.getParameter("capacity")%>'>
             <%Map<String,String[]>map = (Map<String,String[]>)request.getParameterMap();%>
                <% for(Map.Entry<String, String[]> e : map.entrySet()){%>
             <input type="hidden" name = "<%out.print(e.getKey());%>" value="<%out.print(e.getValue()[0]);%>">
                   <% }%>
         <input type="submit" value="dodaj samochod">
+        </form>--%>
+        <form action="carInfoForm.jsp">
+            <input type="submit" value="edytuj">
+        </form>
+        <form action="saveCar" method="post">
+            <input type="submit" value="dodaj samochod">
         </form>
         <%@include file="comany_address.jsp"%>
 </body>

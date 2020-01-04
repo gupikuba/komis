@@ -12,7 +12,7 @@
     <title>Dodaj uzytkownika</title>
 </head>
 <body>
-
+    <a style="text-decoration:none" href="/Komis/">Strona glowna</a><br>
     <%Object o = request.getAttribute("list");%>
     <%List<Client> list = (List<Client>)o;%>
     <table border="solid" align="center">

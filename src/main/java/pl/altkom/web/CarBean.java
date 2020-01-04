@@ -2,7 +2,7 @@ package pl.altkom.web;
 
 public class CarBean {
     private int id;
-    private String brand;
+    private String make;
     private String type;
     private int year;
     private String milage;
@@ -16,12 +16,12 @@ public class CarBean {
         this.id = id;
     }
 
-    public String getBrand() {
-        return brand;
+    public String getMake() {
+        return make;
     }
 
-    public void setBrand(String brand) {
-        this.brand = brand;
+    public void setMake(String make) {
+        this.make = make;
     }
 
     public String getType() {

@@ -18,13 +18,15 @@ public class SaveCarInfoServlet extends HttpServlet {
     private DataSource ds;
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        CarBean carBean = new CarBean();
-        carBean.setBrand(req.getParameter("brand"));
-        carBean.setType(req.getParameter("type"));
-        carBean.setYear(Integer.valueOf(req.getParameter("year")));
-        carBean.setCapacity(req.getParameter("capacity"));
-        carBean.setMilage(req.getParameter("milage"));
+//        CarBean carBean = new CarBean();
+//        carBean.setMake(req.getParameter("make"));
+//        carBean.setType(req.getParameter("type"));
+//        carBean.setYear(Integer.valueOf(req.getParameter("year")));
+//        carBean.setCapacity(req.getParameter("capacity"));
+//        carBean.setMilage(req.getParameter("milage"));
+        CarBean carBean = (CarBean) req.getSession().getAttribute("car");
         CarInfoDAO cIDAO = new CarInfoDAOImpl();
+
         try{
             cIDAO.saveCarInfo(carBean,ds);
         }catch(Exception e){
